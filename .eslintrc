@@ -1,0 +1,8 @@
+{
+  "plugins": ["react"],
+  "extends": ["doran"],
+  "rules": {
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+  }
+}

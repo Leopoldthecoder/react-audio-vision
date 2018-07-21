@@ -1,0 +1,38 @@
+{
+  "name": "react-audio-visualizer",
+  "version": "0.0.1",
+  "description": "A react component that visualizes audio files",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint example/*.js src/*.js",
+    "dev": "parcel example/index.html",
+    "build": "npm run lint && rm -rf lib && parcel build ./src/react-audio-visualizer.js --out-file index.js -d lib --no-minify --no-source-maps"
+  },
+  "keywords": [
+    "react",
+    "audio",
+    "visualize"
+  ],
+  "files": [
+    "build",
+    "example"
+  ],
+  "author": "Leopoldthecoder",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^5.2.0",
+    "eslint-config-doran": "^1.0.7",
+    "eslint-plugin-react": "^7.10.0",
+    "parcel-bundler": "^1.9.7",
+    "parcel-plugin-eslint": "^1.0.4",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  }
+}
