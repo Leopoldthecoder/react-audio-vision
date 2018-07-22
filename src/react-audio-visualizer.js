@@ -27,6 +27,18 @@ export default class AudioVisualizer extends Component {
     canvas.height = height
   }
 
+  play = () => {
+    if (this.props.src instanceof Blob) {
+      const fileReader = new FileReader()
+      fileReader.onload = e => {
+        this.state.visualizer.play(e.target.result)
+      }
+      fileReader.readAsArrayBuffer(this.props.src)
+    } else if (typeof this.props.src === 'string') {
+      this.state.visualizer.play(this.props.src)
+    }
+  }
+
   componentDidMount() {
     const ctx = this.canvas.getContext('2d')
     const { height, width, bars, barColor, volume } = this.props
@@ -37,7 +49,7 @@ export default class AudioVisualizer extends Component {
         draw: getDrawMethod(param),
         volume
       })
-    })
+    }, this.play)
     this.resize()
   }
 
@@ -52,15 +64,7 @@ export default class AudioVisualizer extends Component {
     const { visualizer } = this.state
     const { src, pause, volume, height, width } = this.props
     if (prevSrc !== src) {
-      if (src instanceof Blob) {
-        const fileReader = new FileReader()
-        fileReader.onload = e => {
-          visualizer.play(e.target.result)
-        }
-        fileReader.readAsArrayBuffer(src)
-      } else {
-        visualizer.play(src)
-      }
+      this.play()
     }
     if (prevPause !== pause) {
       visualizer[pause ? 'pause' : 'resume']()
