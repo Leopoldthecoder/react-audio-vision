@@ -47,28 +47,33 @@ export default class Visualizer {
     }
   }
 
-  pause = () => {
-    this.ac.suspend()
-  }
-
-  resume = () => {
-    this.ac.resume()
-  }
-
   updateVolume = vol => {
     this.gainNode.gain.value = vol
   }
 
   visualize = () => {
     const arr = new Uint8Array(this.analyser.frequencyBinCount)
-    const raf = window.requestAnimationFrame ||
-      window.webkitrequestAnimationFrame ||
-      window.mozrequestAnimationFrame
+    const raf = window.requestAnimationFrame
     const fn = () => {
       this.analyser.getByteFrequencyData(arr)
       this.draw(arr)
-      raf(fn)
+      this.rafId = raf(fn)
     }
     fn()
+  }
+
+  pause = () => {
+    this.ac.suspend()
+    window.cancelAnimationFrame(this.rafId)
+  }
+
+  resume = () => {
+    this.ac.resume()
+    this.visualize()
+  }
+
+  stop = () => {
+    this.ac.close()
+    window.cancelAnimationFrame(this.rafId)
   }
 }

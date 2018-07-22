@@ -28,14 +28,15 @@ export default class AudioVisualizer extends Component {
   }
 
   play = () => {
-    if (this.props.src instanceof Blob) {
+    const { src } = this.props
+    if (src instanceof Blob) {
       const fileReader = new FileReader()
       fileReader.onload = e => {
         this.state.visualizer.play(e.target.result)
       }
-      fileReader.readAsArrayBuffer(this.props.src)
-    } else if (typeof this.props.src === 'string') {
-      this.state.visualizer.play(this.props.src)
+      fileReader.readAsArrayBuffer(src)
+    } else if (typeof src === 'string') {
+      this.state.visualizer.play(src)
     }
   }
 
@@ -75,6 +76,10 @@ export default class AudioVisualizer extends Component {
     if (prevHeight !== height || prevWidth !== width) {
       this.resize()
     }
+  }
+
+  componentWillUnmount() {
+    this.state.visualizer.stop()
   }
 
   render() {

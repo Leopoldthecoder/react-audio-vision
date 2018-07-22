@@ -44,7 +44,12 @@ class App extends Component {
         <label>Or paste a URL here</label>
         <input type="text" onChange={this.onUrlInput}/>
         <button onClick={this.togglePause}>{ pause ? 'resume' : 'pause' }</button>
-        <AudioVisualizer src={musicSource} pause={pause} barColor={barColor}/>
+        <AudioVisualizer
+          src={musicSource}
+          pause={pause}
+          barColor={barColor}
+          bars={128}
+        />
       </StrictMode>
     )
   }
