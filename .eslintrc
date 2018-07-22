@@ -1,8 +1,15 @@
 {
+  "parser": "babel-eslint",
   "plugins": ["react"],
   "extends": ["doran"],
+  "globals": {
+    "FileReader": false,
+    "XMLHttpRequest": false,
+    "Blob": false
+  },
   "rules": {
     "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error"
+    "react/jsx-uses-vars": "error",
+    "jsx-quotes": ["error", "prefer-double"]
   }
 }

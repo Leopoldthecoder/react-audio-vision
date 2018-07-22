@@ -1,12 +1,50 @@
 import React, { Component, StrictMode } from 'react'
 import AudioVisualizer from '../src/react-audio-visualizer'
+import './app.css'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      musicSource: null,
+      pause: false,
+      barColor: ['gold', 'black']
+    }
+  }
+
+  onFilePick = e => {
+    const file = e.target.files[0]
+    if (/^audio\//.test(file.type)) {
+      this.setState({
+        musicSource: file
+      })
+    } else {
+      window.alert('Pick an audio file')
+    }
+  }
+
+  onUrlInput = e => {
+    this.setState({
+      musicSource: e.target.value
+    })
+  }
+
+  togglePause = () => {
+    this.setState({
+      pause: !this.state.pause
+    })
+  }
+
   render() {
+    const { musicSource, pause, barColor } = this.state
     return (
       <StrictMode>
-        <p>Hello</p>
-        <AudioVisualizer />
+        <label>Pick an audio file</label>
+        <input type="file" onChange={this.onFilePick}/>
+        <label>Or paste a URL</label>
+        <input type="text" onChange={this.onUrlInput}/>
+        <button onClick={this.togglePause}>{ pause ? 'resume' : 'pause' }</button>
+        <AudioVisualizer src={musicSource} pause={pause} barColor={barColor}/>
       </StrictMode>
     )
   }

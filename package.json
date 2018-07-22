@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "eslint example/*.js src/*.js",
     "dev": "parcel example/index.html",
-    "build": "npm run lint && rm -rf lib && parcel build ./src/react-audio-visualizer.js --out-file index.js -d lib --no-minify --no-source-maps"
+    "build:lib": "npm run lint && rm -rf lib && parcel build ./src/react-audio-visualizer.js --out-file index.js -d lib --no-minify --no-source-maps",
+    "build:demo": "npm run lint && rm -rf demo && parcel build example/index.html -d demo --public-url ./ --no-source-maps",
+    "deploy": "gh-pages -d demo"
   },
   "keywords": [
     "react",
@@ -25,11 +27,14 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "eslint": "^5.2.0",
     "eslint-config-doran": "^1.0.7",
     "eslint-plugin-react": "^7.10.0",
+    "gh-pages": "^1.2.0",
     "parcel-bundler": "^1.9.7",
     "parcel-plugin-eslint": "^1.0.4",
     "react": "^16.4.1",
