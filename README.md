@@ -73,3 +73,6 @@ class App extends React.Component {
   // 音频播放音量，介于 0 和 1 之间的数字
   volume={0.6} />
 ```
+
+### Reference
+https://github.com/loosenRogers/MusicVisualizer-WebAudioAPI
