@@ -1,6 +1,6 @@
 {
   "name": "react-audio-vision",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A react component that visualizes audio files",
   "main": "lib/index.common.js",
   "module": "lib/index.es.js",
