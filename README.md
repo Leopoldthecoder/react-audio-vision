@@ -49,7 +49,7 @@ class App extends React.Component {
 ```
 
 ### API
-```html
+```jsx
 <AudioVision
   // audio source, can be a string (a url that triggers an XMLHttpRequest) or a blob
   // 音频源，字符串（音频的 url 地址，会触发 XMLHttpRequest 请求）或 Blob 类型
