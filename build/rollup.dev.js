@@ -22,7 +22,7 @@ export default {
     babel({
       babelrc: false,
       exclude: '**.css',
-      presets: [ ['@babel/preset-env', { modules: false }], '@babel/preset-react' ],
+      presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
       plugins: ['@babel/plugin-proposal-class-properties']
     }),
     cjs({
@@ -31,7 +31,7 @@ export default {
       }
     }),
     resolve({
-      browser: true,
+      browser: true
     }),
     css({
       output: 'dist/index.css'

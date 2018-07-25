@@ -24,7 +24,7 @@ npm install react-audio-vision
 ### Usage
 
 #### npm
-```js
+```jsx
 import React, { Component } from 'react'
 import AudioVision from 'react-audio-vision'
 
@@ -38,21 +38,24 @@ class App extends Component {
 ```
 
 #### script tag
-```js
-class App extends React.Component {
-  render() {
-    return (
-      <AudioVision />
-    )
+```html
+<script>
+  class App extends React.Component {
+    render() {
+      return (
+        <AudioVision />
+      )
+    }
   }
-}
+  ReactDOM.render(<App />, document.querySelector('#app'))
+</script>
 ```
 
 ### API
 ```jsx
 <AudioVision
-  // audio source, can be a string (a url that triggers an XMLHttpRequest) or a blob
-  // 音频源，字符串（音频的 url 地址，会触发 XMLHttpRequest 请求）或 Blob 类型
+  // audio source, can be a string (a url of an audio file that triggers an XMLHttpRequest) or a blob
+  // 音频源，字符串（音频文件的 url 地址，会触发 XMLHttpRequest 请求）或 Blob 类型
   src="path/to/my.mp3"
 
   // canvas width, number

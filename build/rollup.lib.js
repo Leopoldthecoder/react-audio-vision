@@ -9,7 +9,7 @@ const plugins = [
   eslint(),
   babel({
     babelrc: false,
-    presets: [ ['@babel/preset-env', { modules: false }], '@babel/preset-react' ],
+    presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
     plugins: ['@babel/plugin-proposal-class-properties']
   }),
   cjs({
@@ -18,7 +18,7 @@ const plugins = [
     }
   }),
   resolve({
-    browser: true,
+    browser: true
   })
 ]
 
