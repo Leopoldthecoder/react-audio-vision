@@ -5,7 +5,7 @@ const cjs = require('rollup-plugin-commonjs')
 const resolve = require('rollup-plugin-node-resolve')
 
 const inputOptions = {
-  input: 'src/react-audio-visualizer.js',
+  input: 'src/react-audio-vision.js',
   plugins: [
     eslint(),
     babel({
@@ -26,7 +26,7 @@ const inputOptions = {
 }
 
 const outputOptions = {
-  name: 'AudioVisualizer',
+  name: 'AudioVision',
   globals: {
     react: 'React',
     'react-dom': 'ReactDOM'

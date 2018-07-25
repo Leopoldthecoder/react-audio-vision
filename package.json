@@ -1,5 +1,5 @@
 {
-  "name": "react-audio-visualizer",
+  "name": "react-audio-vision",
   "version": "0.0.1",
   "description": "A react component that visualizes audio files",
   "main": "lib/index.common.js",
@@ -9,7 +9,8 @@
   "scripts": {
     "lint": "eslint example/*.js src/*.js",
     "dev": "rollup -c build/rollup.dev.js -w",
-    "build": "npm run lint && rm -rf lib && node build/rollup.lib.js"
+    "build": "npm run lint && rm -rf lib && node build/rollup.lib.js",
+    "publish": "npm run build && sh release.sh"
   },
   "keywords": [
     "react",

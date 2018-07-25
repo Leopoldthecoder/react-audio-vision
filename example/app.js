@@ -1,5 +1,5 @@
 import React, { Component, StrictMode } from 'react'
-import AudioVisualizer from '../src/react-audio-visualizer'
+import AudioVision from '../src/react-audio-vision'
 import './app.css'
 
 class App extends Component {
@@ -44,7 +44,7 @@ class App extends Component {
         <label>Or paste a URL here</label>
         <input type="text" onChange={this.onUrlInput}/>
         <button onClick={this.togglePause}>{ pause ? 'resume' : 'pause' }</button>
-        <AudioVisualizer
+        <AudioVision
           src={musicSource}
           pause={pause}
           barColor={barColor}

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Visualizer from './visualizer'
 import getDrawMethod from './draw'
 
-export default class AudioVisualizer extends Component {
+export default class AudioVision extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -84,7 +84,7 @@ export default class AudioVisualizer extends Component {
 
   render() {
     return (
-      <div className="react-audio-visualizer">
+      <div className="react-audio-vision">
         <canvas ref={ref => { this.canvas = ref }}/>
       </div>
     )
