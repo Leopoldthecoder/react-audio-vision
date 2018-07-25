@@ -2,13 +2,14 @@
   "name": "react-audio-visualizer",
   "version": "0.0.1",
   "description": "A react component that visualizes audio files",
-  "main": "dist/index.js",
+  "main": "lib/index.common.js",
+  "module": "lib/index.es.js",
+  "unpkg": "lib/index.umd.js",
+  "jsdelivr": "lib/index.umd.js",
   "scripts": {
     "lint": "eslint example/*.js src/*.js",
-    "dev": "parcel example/index.html",
-    "build:lib": "npm run lint && rm -rf lib && parcel build ./src/react-audio-visualizer.js --out-file index.js -d lib --no-minify --no-source-maps",
-    "build:demo": "npm run lint && rm -rf demo && parcel build example/index.html -d demo --public-url ./ --no-source-maps",
-    "deploy": "npm run build:demo && gh-pages -d demo"
+    "dev": "rollup -c build/rollup.dev.js -w",
+    "build": "npm run lint && rm -rf lib && node build/rollup.lib.js"
   },
   "keywords": [
     "react",
@@ -16,8 +17,9 @@
     "visualize"
   ],
   "files": [
-    "build",
-    "example"
+    "src",
+    "example",
+    "lib"
   ],
   "author": "Leopoldthecoder",
   "license": "MIT",
@@ -27,17 +29,21 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.54",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.54",
+    "@babel/preset-env": "^7.0.0-beta.54",
+    "@babel/preset-react": "^7.0.0-beta.54",
     "babel-eslint": "^8.2.6",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
     "eslint": "^5.2.0",
     "eslint-config-doran": "^1.0.7",
     "eslint-plugin-react": "^7.10.0",
-    "gh-pages": "^1.2.0",
-    "parcel-bundler": "^1.9.7",
-    "parcel-plugin-eslint": "^1.0.4",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "rollup": "^0.63.4",
+    "rollup-plugin-babel": "^4.0.0-beta.7",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-css-only": "^0.4.0",
+    "rollup-plugin-eslint": "^5.0.0",
+    "rollup-plugin-node-resolve": "^3.3.0"
   }
 }
