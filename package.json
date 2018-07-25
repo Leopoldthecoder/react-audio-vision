@@ -10,7 +10,7 @@
     "lint": "eslint example/*.js src/*.js",
     "dev": "rollup -c build/rollup.dev.js -w",
     "build": "npm run lint && rm -rf lib && node build/rollup.lib.js",
-    "publish": "npm run build && sh release.sh"
+    "pub": "npm run build && sh release.sh"
   },
   "keywords": [
     "react",
@@ -45,6 +45,7 @@
     "rollup-plugin-commonjs": "^9.1.3",
     "rollup-plugin-css-only": "^0.4.0",
     "rollup-plugin-eslint": "^5.0.0",
-    "rollup-plugin-node-resolve": "^3.3.0"
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-uglify": "^4.0.0"
   }
 }
