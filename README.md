@@ -1,5 +1,11 @@
 # react-audio-vision
 
+> A react component that visualizes audio files
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/10095631/43189043-3f1a72d2-9028-11e8-9504-664febe8c985.gif" width="400">
+</p>
+
 ### Demo
 https://jsfiddle.net/leopoldthecuber/2dovasye/
 
